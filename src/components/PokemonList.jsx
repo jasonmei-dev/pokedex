@@ -16,6 +16,7 @@ const PokemonList = ({ allPokemon }) => {
               weight={pokemon.weight}
               height={pokemon.height}
               stats={pokemon.stats.map((stat) => stat.base_stat).slice(0, 3)}
+              statsName={pokemon.stats.map((stat) => stat.stat.name).slice(0, 3)}
             />
           ))}
         </div>
