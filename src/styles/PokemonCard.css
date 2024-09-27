@@ -5,7 +5,7 @@
   margin-right: 20px;
 }
 
-::webkit-scrollbar {
+::-webkit-scrollbar {
   width: 7px;
   background-color: #910305;
 }
