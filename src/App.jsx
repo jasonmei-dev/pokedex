@@ -6,23 +6,22 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([]);
 
   const getAllPokemon = async () => {
-    setAllPokemon([]);
-    const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=151');
+    try {
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=151');
 
-    const results = res.data.results;
+      const results = res.data.results;
 
-    const createPokemonObjects = (pokemonData) => {
-      pokemonData.forEach(async (pokemon) => {
-        const res = await axios.get(pokemon.url);
-        const data = res.data;
+      const pokemonData = await Promise.all(
+        results.map(async (pokemon) => {
+          const res = await axios.get(pokemon.url);
+          return res.data;
+        })
+      );
 
-        setAllPokemon((allPokemon) => [...allPokemon, data]);
-      });
-    };
-
-    // setAllPokemon(results.map((pokemon) => pokemon.name));
-    createPokemonObjects(results);
-    console.log('All Pokemon:', allPokemon);
+      setAllPokemon(pokemonData);
+    } catch (error) {
+      console.log('Error fetching Pokemon:', error);
+    }
   };
 
   useEffect(() => {

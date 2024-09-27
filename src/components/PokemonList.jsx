@@ -1,36 +1,25 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import '../styles/PokemonList.css';
 
 const PokemonList = ({ allPokemon }) => {
-  // const [pokemonObjects, setPokemonObjects] = useState([]);
-
-  // const createPokemonObjects = () => {
-  //   setPokemonObjects([]);
-
-  //   allPokemon.forEach(async (pokemon) => {
-  //     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-  //     const pokemonData = res.data;
-  //     // console.log(pokemonData);
-  //     setPokemonObjects((currentList) => [...currentList, pokemonData]);
-  //   });
-  //   pokemonObjects.sort((a, b) => a.id - b.id);
-  //   console.log('Pokemon Objects:', pokemonObjects);
-  // };
-
-  // useEffect(() => {
-  //   createPokemonObjects();
-  // }, [allPokemon]);
-
   return (
     <div className="app-container">
-      <h1>Pokemon List</h1>
-      {allPokemon.map((pokemon) => (
-        <p key={pokemon.id}>
-          {pokemon.id} {pokemon.name}
-        </p>
-      ))}
+      <div className="pokemon-container">
+        <div className="all-container">
+          {allPokemon.map((pokemon) => (
+            <PokemonCard
+              key={pokemon.id}
+              id={pokemon.id.toString().padStart(3, '0')}
+              image={pokemon.sprites.other.home.front_default}
+              name={pokemon.name.replace(/^./, (str) => str.toUpperCase())}
+              type={pokemon.types[0].type.name}
+              weight={pokemon.weight}
+              height={pokemon.height}
+              stats={pokemon.stats.map((stat) => stat.base_stat).slice(0, 3)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
