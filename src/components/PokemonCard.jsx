@@ -2,7 +2,7 @@ import { useState } from 'react';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 
-const PokemonCard = ({ id, image, name, type, weight, height, stats, statsName }) => {
+const PokemonCard = ({ id, icon, image, name, types, weight, height, stats, statsName }) => {
   const [isShown, setIsShown] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -35,7 +35,13 @@ const PokemonCard = ({ id, image, name, type, weight, height, stats, statsName }
             </div>
 
             <div style={{ background: '#fff' }} className="stats-right">
-              <p>{type}</p>
+              {types.length > 1 ? (
+                <p style={{ textTransform: 'capitalize' }}>
+                  {types[0].type.name} / {types[1].type.name}
+                </p>
+              ) : (
+                <p style={{ textTransform: 'capitalize' }}>{types[0].type.name}</p>
+              )}
               <p>{height} m</p>
               <p>{weight} kg</p>
             </div>

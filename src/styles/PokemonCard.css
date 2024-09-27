@@ -95,7 +95,7 @@
 .stats-right > p {
   font-size: 20px;
   font-weight: 500;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   padding: 10px;
   border-bottom: 1px solid #90979f38;
 }
