@@ -6,11 +6,10 @@ import axios from 'axios';
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
-  // const [allPokedexData, setAllPokedexData] = useState([]);
 
   const getAllPokemon = async () => {
     try {
-      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=251');
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=493');
 
       const results = res.data.results;
 
@@ -21,15 +20,7 @@ function App() {
         })
       );
 
-      // const pokedexData = await Promise.all(
-      //   results.map(async (pokemon) => {
-      //     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}`);
-      //     return res.data;
-      //   })
-      // );
-
       setAllPokemon(pokemonData);
-      // setAllPokedexData(pokedexData);
     } catch (error) {
       console.log('Error fetching Pokemon Data:', error);
     }
