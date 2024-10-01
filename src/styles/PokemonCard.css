@@ -73,7 +73,7 @@
 
 .image-title {
   width: 45px;
-  min-height: 60px;
+  min-height: 45px;
   margin-right: 10px;
 }
 
@@ -121,6 +121,9 @@
 }
 
 .stats:nth-child(1),
-.stats:nth-child(2) {
+.stats:nth-child(2),
+.stats:nth-child(3),
+.stats:nth-child(4),
+.stats:nth-child(5) {
   border-bottom: 1px solid white;
 }

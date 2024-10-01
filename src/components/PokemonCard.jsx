@@ -1,17 +1,15 @@
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 
-const PokemonCard = ({ id, icon, image, name, types, weight, height, stats, statsName }) => {
+const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, stats, statsName }) => {
   const [isShown, setIsShown] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
+  const navigate = useNavigate();
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const handleCardClick = () => {
+    navigate(`/pokemon/${id}`, { state: { id, dexNum, icon, image, name, types, weight, height, stats, statsName } });
   };
 
   return (
@@ -20,7 +18,7 @@ const PokemonCard = ({ id, icon, image, name, types, weight, height, stats, stat
         <div className="show">
           <div className="stat-container-title">
             <img src={image} alt={name} className="image-title" />
-            <p style={{ width: '180px', color: 'black' }}>No. {id}</p>
+            <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
             <p>{name}</p>
             <img src={pokeball} alt="pokeball" className="pokeball-title" />
           </div>
@@ -47,7 +45,7 @@ const PokemonCard = ({ id, icon, image, name, types, weight, height, stats, stat
             </div>
           </div>
 
-          <div className="base-stats">
+          {/* <div className="base-stats">
             <div>
               {statsName.map((statName, i) => (
                 <p key={i} className="stats">
@@ -63,22 +61,16 @@ const PokemonCard = ({ id, icon, image, name, types, weight, height, stats, stat
                 </p>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       )}
 
-      <div
-        className="right"
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
-        // onClick={handleShowModal}
-      >
+      <div className="right" onClick={handleCardClick} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
         <img src={image} alt={name} style={{ maxHeight: '50px', marginRight: '10px', width: '50px' }} />
-        <p style={{ width: '270px' }}>No. {id}</p>
+        <p style={{ width: '270px' }}>No. {dexNum}</p>
         <p>{name}</p>
         <img src={pokeball} alt="pokeball" style={{ marginLeft: 'auto', width: '40px' }} />
       </div>
-      {/* {showModal && <Modal id={id} name={name} image={image} height={height} stats={stats} statsName={statsName} type={id} onClick={handleCloseModal} />} */}
     </div>
   );
 };
