@@ -53,7 +53,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
         <img src={icon} alt={name} style={{ maxHeight: '40px', marginRight: '10px', width: '40px' }} />
         <p style={{ width: '270px' }}>No. {dexNum}</p>
         <p>{name}</p>
-        <img src={pokeball} alt="pokeball" style={{ marginLeft: 'auto', width: '40px' }} />
+        <img src={pokeball} alt="pokeball" style={{ marginLeft: 'auto', width: '30px' }} />
       </div>
     </div>
   );

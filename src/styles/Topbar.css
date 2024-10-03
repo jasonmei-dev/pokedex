@@ -1,0 +1,16 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  padding: 0 350px 0 30px;
+  top: 30px;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(115deg, #ddd3d8, 57.7%, black 57.7%);
+}
+
+.topbar p {
+  font-size: 28px;
+  font-weight: 700;
+}
