@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 import axios from 'axios';
@@ -7,6 +7,11 @@ import axios from 'axios';
 const PokemonPage = () => {
   const [speciesData, setSpeciesData] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   const location = useLocation();
   const { id, dexNum, icon, image, name, types, weight, height, stats, statsName } = location.state || {};
@@ -34,8 +39,9 @@ const PokemonPage = () => {
         <div>Loading... </div>
       ) : (
         <div className="show">
+          <div onClick={handleBack}>Back</div>
           <div className="stat-container-title">
-            <img src={image} alt={name} className="image-title" />
+            <img src={icon} alt={name} className="image-title" />
             <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
             <p>{name}</p>
             <img src={pokeball} alt="pokeball" className="pokeball-title" />
@@ -64,7 +70,9 @@ const PokemonPage = () => {
           </div>
 
           <div className="flavor-text">
-            <p>{speciesData?.flavor_text_entries[0].flavor_text}</p>
+            <p>{speciesData?.genera[7].genus}</p>
+            {/* Account for misordered data for Nidorino and Zubat flavor text from PokeAPI */}
+            {id !== 33 && id !== 41 ? <p>{speciesData?.flavor_text_entries[0].flavor_text}</p> : <p>{speciesData?.flavor_text_entries[2].flavor_text}</p>}
           </div>
 
           <div className="base-stats">

@@ -29,6 +29,7 @@
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
   border-radius: 50px;
   cursor: pointer;
+  /* color: white; */
 }
 
 .right:hover > :nth-child(3) {
@@ -72,8 +73,8 @@
 }
 
 .image-title {
-  width: 45px;
-  min-height: 45px;
+  /* width: 50px;
+  min-height: 50px; */
   margin-right: 10px;
 }
 

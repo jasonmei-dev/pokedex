@@ -11,7 +11,8 @@ const PokemonList = ({ allPokemon }) => {
               key={pokemon.id}
               id={pokemon.id}
               dexNum={pokemon.id.toString().padStart(3, '0')}
-              icon={pokemon.sprites.other['official-artwork'].front_default}
+              icon={pokemon.sprites.versions['generation-vii'].icons.front_default}
+              // icon={pokemon.sprites.other.home.front_default}
               image={pokemon.sprites.other.home.front_default}
               name={pokemon.name.replace(/^./, (str) => str.toUpperCase())}
               types={pokemon.types}

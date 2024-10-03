@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
@@ -9,15 +9,25 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
   const navigate = useNavigate();
 
   const handleCardClick = () => {
+    const scrollPosition = window.scrollY;
+    localStorage.setItem('scrollPosition', scrollPosition);
+
     navigate(`/pokemon/${id}`, { state: { id, dexNum, icon, image, name, types, weight, height, stats, statsName } });
   };
+
+  useEffect(() => {
+    const savedPosition = localStorage.getItem('scrollPosition');
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition));
+    }
+  }, []);
 
   return (
     <div className="card-container">
       {isShown && (
         <div className="show">
           <div className="stat-container-title">
-            <img src={image} alt={name} className="image-title" />
+            <img src={icon} alt={name} className="image-title" />
             <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
             <p>{name}</p>
             <img src={pokeball} alt="pokeball" className="pokeball-title" />
@@ -66,7 +76,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
       )}
 
       <div className="right" onClick={handleCardClick} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
-        <img src={image} alt={name} style={{ maxHeight: '50px', marginRight: '10px', width: '50px' }} />
+        <img src={icon} alt={name} style={{ maxHeight: '50px', marginRight: '10px', width: '50px' }} />
         <p style={{ width: '270px' }}>No. {dexNum}</p>
         <p>{name}</p>
         <img src={pokeball} alt="pokeball" style={{ marginLeft: 'auto', width: '40px' }} />
