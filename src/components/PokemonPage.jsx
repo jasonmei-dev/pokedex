@@ -9,6 +9,7 @@ const PokemonPage = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
   const handleBack = () => {
     navigate(-1);
   };
