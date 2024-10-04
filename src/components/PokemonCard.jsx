@@ -4,7 +4,7 @@ import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 
 const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, stats, statsName, scrollPosition }) => {
-  const [isShown, setIsShown] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const navigate = useNavigate();
 
@@ -16,8 +16,8 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
 
   return (
     <div className="card-container">
-      {isShown && (
-        <div className="show">
+      {showPreview && (
+        <div className="preview">
           <div className="stat-container-title">
             <img src={icon} alt={name} className="image-title" />
             <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
@@ -49,7 +49,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
         </div>
       )}
 
-      <div className="right" onClick={handleCardClick} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+      <div className="card" onClick={handleCardClick} onMouseEnter={() => setShowPreview(true)} onMouseLeave={() => setShowPreview(false)}>
         <img src={icon} alt={name} style={{ maxHeight: '40px', marginRight: '10px', width: '40px' }} />
         <p style={{ width: '270px' }}>No. {dexNum}</p>
         <p>{name}</p>

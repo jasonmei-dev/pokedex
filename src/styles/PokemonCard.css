@@ -14,7 +14,7 @@
   background-color: #fb7248;
 }
 
-.right {
+.card {
   display: flex;
   align-items: center;
   width: 38%;
@@ -25,22 +25,22 @@
   font-weight: 700;
 }
 
-.right:hover {
+.card:hover {
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
   border-radius: 50px;
   cursor: pointer;
   /* color: white; */
 }
 
-.right:hover > :nth-child(3) {
+.card:hover > :nth-child(3) {
   color: white;
 }
 
-.right:hover > :nth-child(4) {
+.card:hover > :nth-child(4) {
   filter: invert(1);
 }
 
-.show {
+.preview {
   position: fixed;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
   z-index: 2;
 }
 
-.show > img {
+.preview > img {
   filter: drop-shadow(2px 4px 12px black);
   max-width: 300px;
 }

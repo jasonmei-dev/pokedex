@@ -32,14 +32,14 @@ const PokemonPage = () => {
 
   useEffect(() => {
     getSpeciesData();
-  }, [id]);
+  }, []);
 
   return (
-    <div className="show">
+    <div className="preview">
       {loading ? (
         <div>Loading... </div>
       ) : (
-        <div className="show">
+        <div className="preview">
           <div onClick={handleBack}>Back</div>
           <div className="stat-container-title">
             <img src={icon} alt={name} className="image-title" />

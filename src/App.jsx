@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PokemonList from './components/PokemonList';
-import PokemonPage from './components/PokemonPage';
+import HomePage from './pages/HomePage';
+import PokemonPage from './pages/PokemonPage';
 import axios from 'axios';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PokemonList allPokemon={allPokemon} />} />
+        <Route path="/" element={<HomePage allPokemon={allPokemon} />} />
         <Route path="/pokemon/:id" element={<PokemonPage />} />
       </Routes>
     </Router>
