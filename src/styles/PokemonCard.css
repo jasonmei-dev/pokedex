@@ -29,7 +29,7 @@
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
   border-radius: 50px;
   cursor: pointer;
-  /* color: white; */
+  color: white;
 }
 
 .card:hover > :nth-child(3) {

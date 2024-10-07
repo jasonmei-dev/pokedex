@@ -9,9 +9,14 @@ const HomePage = ({ allPokemon }) => {
     setSearchText(e.target.value);
   };
 
+  const clearSearch = () => {
+    console.log('clear button clicked');
+    setSearchText('');
+  };
+
   return (
     <div className="app-container">
-      <Topbar handleOnChange={handleOnChange} />
+      <Topbar handleOnChange={handleOnChange} searchText={searchText} clearSearch={clearSearch} />
       <PokemonList allPokemon={allPokemon} searchText={searchText} />
     </div>
   );
