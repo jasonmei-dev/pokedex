@@ -38,6 +38,10 @@
   width: 100%;
 }
 
+.search-wrapper input:focus {
+  outline: none;
+}
+
 .search-wrapper .fa-xmark {
   position: absolute;
   right: 10px;
