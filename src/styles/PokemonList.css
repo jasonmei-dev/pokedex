@@ -6,3 +6,12 @@
   overflow-y: scroll;
   width: 100%;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #910305;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fb7248;
+}

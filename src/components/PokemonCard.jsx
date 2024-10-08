@@ -18,23 +18,23 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
     <div className="card-container">
       {showPreview && (
         <div className="preview">
-          <div className="stat-container-title">
-            <img src={icon} alt={name} className="image-title" />
+          <div className="preview-header">
+            <img src={icon} alt={name} className="preview-icon" />
             <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
             <p>{name}</p>
-            <img src={pokeball} alt="pokeball" className="pokeball-title" />
+            <img src={pokeball} alt="pokeball" className="preview-pokeball" />
           </div>
 
           <img src={image} alt={name} />
 
-          <div style={{ display: 'flex', width: '100%' }}>
-            <div style={{ background: '#dbdbd9', textAlign: 'center' }} className="stats-left">
+          <div className="stats-container">
+            <div className="stats-left">
               <p>Type</p>
               <p>Height</p>
               <p>Weight</p>
             </div>
 
-            <div style={{ background: '#fff' }} className="stats-right">
+            <div className="stats-right">
               {types.length > 1 ? (
                 <p style={{ textTransform: 'capitalize' }}>
                   {types[0].type.name} / {types[1].type.name}
@@ -50,10 +50,16 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
       )}
 
       <div className="card" onClick={handleCardClick} onMouseEnter={() => setShowPreview(true)} onMouseLeave={() => setShowPreview(false)}>
-        <img src={icon} alt={name} style={{ maxHeight: '40px', marginRight: '10px', width: '40px' }} />
-        <p style={{ width: '270px' }}>No. {dexNum}</p>
-        <p>{name}</p>
-        <img src={pokeball} alt="pokeball" style={{ marginLeft: 'auto', width: '30px' }} />
+        <div className="icon-wrapper">
+          <img src={icon} alt={name} className="card-icon" />
+          <p>No. {dexNum}</p>
+        </div>
+        <div style={{ width: '30%' }}>
+          <p>{name}</p>
+        </div>
+        <div style={{ width: '20%', textAlign: 'right' }}>
+          <img src={pokeball} alt="pokeball" className="card-pokeball" />
+        </div>
       </div>
     </div>
   );

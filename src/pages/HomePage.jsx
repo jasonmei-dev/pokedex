@@ -10,7 +10,6 @@ const HomePage = ({ allPokemon }) => {
   };
 
   const clearSearch = () => {
-    console.log('clear button clicked');
     setSearchText('');
   };
 
