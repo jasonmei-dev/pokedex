@@ -37,7 +37,7 @@
   height: 32px;
   padding: 0 40px;
   width: 100%;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .search-wrapper input:focus {
@@ -50,4 +50,56 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) {
+  .topbar {
+    padding: 0 20px 0 20px;
+    background: linear-gradient(135deg, #ddd3d8, 45%, black 45%);
+  }
+
+  .topbar p {
+    font-size: 24px;
+  }
+
+  .search-wrapper {
+    width: 48%;
+  }
+
+  .search-wrapper input {
+    font-size: 14px;
+  }
+}
+
+/* Small devices (phones, landscape) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topbar {
+    padding: 0 20px 0 20px;
+    background: linear-gradient(135deg, #ddd3d8, 50%, black 50%);
+  }
+
+  .topbar p {
+    font-size: 24px;
+  }
+
+  .search-wrapper {
+    width: 43%;
+  }
+
+  .search-wrapper input {
+    font-size: 14px;
+  }
+}
+
+/* Medium devices (tablets, portrait) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* Large devices (tablets, landscape & desktops) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {
 }

@@ -19,8 +19,10 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
       {showPreview && (
         <div className="preview">
           <div className="preview-header">
-            <img src={icon} alt={name} className="preview-icon" />
-            <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
+            <div className="icon-wrapper">
+              <img src={icon} alt={name} className="preview-icon" />
+              <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
+            </div>
             <p>{name}</p>
             <img src={pokeball} alt="pokeball" className="preview-pokeball" />
           </div>
@@ -57,7 +59,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
         <div style={{ width: '30%' }}>
           <p>{name}</p>
         </div>
-        <div style={{ width: '20%', textAlign: 'right' }}>
+        <div style={{ width: '20%', display: 'flex', justifyContent: 'end' }}>
           <img src={pokeball} alt="pokeball" className="card-pokeball" />
         </div>
       </div>
