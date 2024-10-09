@@ -15,19 +15,28 @@
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) {
   .app-container {
-    background: linear-gradient(135deg, #fff1ff, 10%, #f3533b 10% 20%, #fb7248 15%);
+    background: linear-gradient(135deg, #fff1ff, 10%, #f3533b 10% 20%, #fb7248 20%);
   }
 }
 
 /* Small devices (phones, landscape) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .app-container {
-    background: linear-gradient(135deg, #fff1ff, 10%, #f3533b 10% 20%, #fb7248 15%);
+    background: linear-gradient(135deg, #fff1ff, 10%, #f3533b 10% 20%, #fb7248 20%);
   }
 }
 
 /* Medium devices (tablets, portrait) */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 849.98px) {
+  .app-container {
+    background: linear-gradient(115deg, #fff1ff, 45%, #f3533b 45% 52%, #fb7248 52%);
+  }
+}
+
+@media (min-width: 850px) and (max-width: 991.98px) {
+  .app-container {
+    background: linear-gradient(115deg, #fff1ff, 46%, #f3533b 46% 53%, #fb7248 53%);
+  }
 }
 
 /* Large devices (tablets, landscape & desktops) */

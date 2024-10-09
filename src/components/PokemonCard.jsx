@@ -56,7 +56,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
           <img src={icon} alt={name} className="card-icon" />
           <p>No. {dexNum}</p>
         </div>
-        <div style={{ width: '30%' }}>
+        <div className="name-wrapper">
           <p>{name}</p>
         </div>
         <div style={{ width: '20%', display: 'flex', justifyContent: 'end' }}>

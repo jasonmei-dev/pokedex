@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  padding: 0 50px 0 30px;
+  padding: 0 45px 0 30px;
   top: 30px;
   width: 100%;
   height: 50px;
@@ -75,7 +75,7 @@
 /* Small devices (phones, landscape) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .topbar {
-    padding: 0 20px 0 20px;
+    padding: 0 40px 0 20px;
     background: linear-gradient(135deg, #ddd3d8, 50%, black 50%);
   }
 
@@ -84,7 +84,7 @@
   }
 
   .search-wrapper {
-    width: 43%;
+    width: 42%;
   }
 
   .search-wrapper input {
@@ -94,6 +94,9 @@
 
 /* Medium devices (tablets, portrait) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .search-wrapper input {
+    font-size: 14px;
+  }
 }
 
 /* Large devices (tablets, landscape & desktops) */
