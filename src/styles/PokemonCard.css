@@ -33,21 +33,16 @@
   width: 50%;
 }
 
-.name-wrapper {
-  width: 30%;
-}
-
-.card-icon {
-  /* margin-top: -25px;
-  margin-right: -5px;
-  min-height: 60px; */
-  /* max-height: 40px; */
+.icon {
   margin-right: 10px;
   width: 45px;
 }
 
-.card-pokeball {
-  /* margin-left: auto; */
+.name-wrapper {
+  width: 30%;
+}
+
+.pokeball {
   width: 30px;
 }
 
@@ -57,7 +52,7 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  width: 450px;
+  width: 400px;
   height: 75vh;
   left: 10%;
   bottom: 10%;
@@ -80,20 +75,7 @@
   width: 110%;
   height: 65px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #f0501d 40%, black 40%);
-}
-
-.preview-icon {
-  /* margin-top: -25px; */
-  margin-right: 10px;
-  /* min-height: 60px; */
-  width: 45px;
-}
-
-.preview-pokeball {
-  width: 30px;
-  margin-left: auto;
-  filter: invert(1);
+  background: linear-gradient(135deg, #f0501d 42%, black 42%);
 }
 
 .stats-container {
@@ -166,6 +148,14 @@
     width: 100%;
     font-size: 16px;
   }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 45%, black 45%);
+  }
+
+  .preview {
+    display: none;
+  }
 }
 
 @media (min-width: 400px) and (max-width: 449.98px) {
@@ -177,6 +167,14 @@
   .card {
     width: 100%;
     font-size: 18px;
+  }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 44%, black 44%);
+  }
+
+  .preview {
+    display: none;
   }
 }
 
@@ -190,6 +188,14 @@
     width: 100%;
     font-size: 20px;
   }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+  }
+
+  .preview {
+    display: none;
+  }
 }
 
 @media (min-width: 480px) and (max-width: 527.98px) {
@@ -201,6 +207,14 @@
     width: 100%;
     font-size: 22px;
   }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+  }
+
+  .preview {
+    display: none;
+  }
 }
 
 @media (min-width: 528px) and (max-width: 575.98px) {
@@ -210,6 +224,14 @@
 
   .card {
     width: 100%;
+  }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 42%, black 42%);
+  }
+
+  .preview {
+    display: none;
   }
 }
 
@@ -222,6 +244,10 @@
   .card {
     width: 100%;
   }
+
+  .preview {
+    display: none;
+  }
 }
 
 /* Medium devices (tablets, portrait) */
@@ -230,6 +256,10 @@
     font-size: 15px;
   }
 
+  .card:hover {
+    background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%);
+  }
+
   .icon-wrapper {
     width: 45%;
   }
@@ -241,13 +271,37 @@
   .card-icon {
     margin-right: 5px;
   }
+
+  .preview {
+    width: 350px;
+    left: 8%;
+  }
+
+  .preview-header {
+    font-size: 22px;
+    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+  }
+
+  .stats-left,
+  .stats-right {
+    font-size: 18px;
+  }
+
+  .stats-left > p,
+  .stats-right > p {
+    font-size: 18px;
+  }
 }
 
-@media (min-width: 849px) and (max-width: 874.98px) {
+@media (min-width: 850px) and (max-width: 874.98px) {
   .card {
     font-size: 17px;
   }
 
+  .card:hover {
+    background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%);
+  }
+
   .icon-wrapper {
     width: 45%;
   }
@@ -259,13 +313,37 @@
   .card-icon {
     margin-right: 5px;
   }
+
+  .preview {
+    width: 350px;
+    left: 8%;
+  }
+
+  .preview-header {
+    font-size: 22px;
+    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+  }
+
+  .stats-left,
+  .stats-right {
+    font-size: 18px;
+  }
+
+  .stats-left > p,
+  .stats-right > p {
+    font-size: 18px;
+  }
 }
 
-@media (min-width: 875px) and (max-width: 974.98px) {
+@media (min-width: 875px) and (max-width: 949.98px) {
   .card {
     font-size: 18px;
   }
 
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 44.4%, black 44.4%);
+  }
+
   .icon-wrapper {
     width: 45%;
   }
@@ -276,19 +354,46 @@
 
   .card-icon {
     margin-right: 5px;
+  }
+
+  .preview {
+    width: 350px;
+  }
+
+  .preview-header {
+    font-size: 22px;
+    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+  }
+
+  .stats-left,
+  .stats-right {
+    font-size: 18px;
+  }
+
+  .stats-left > p,
+  .stats-right > p {
+    font-size: 18px;
   }
 }
 
 /* Large devices (tablets, landscape & desktops) */
-@media (min-width: 975px) and (max-width: 1074.98px) {
+@media (min-width: 950px) and (max-width: 1049.98px) {
   .card {
     font-size: 18px;
   }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+  }
 }
 
-@media (min-width: 1075px) and (max-width: 1149.98px) {
+@media (min-width: 1050px) and (max-width: 1149.98px) {
   .card {
     font-size: 20px;
+  }
+
+  .card:hover {
+    background: linear-gradient(135deg, #f0501d 42%, black 42%);
   }
 }
 
@@ -296,8 +401,4 @@
   .card {
     font-size: 22px;
   }
-}
-
-/* Extra large devices (large desktops) */
-@media (min-width: 1200px) {
 }

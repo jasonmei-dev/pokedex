@@ -22,19 +22,3 @@
     right: 20px;
   }
 }
-
-/* Small devices (phones, landscape) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
-/* Medium devices (tablets, portrait) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
-/* Large devices (tablets, landscape & desktops) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-/* Extra large devices (large desktops) */
-@media (min-width: 1200px) {
-}

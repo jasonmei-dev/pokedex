@@ -20,11 +20,11 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
         <div className="preview">
           <div className="preview-header">
             <div className="icon-wrapper">
-              <img src={icon} alt={name} className="preview-icon" />
-              <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
+              <img src={icon} alt={name} className="icon" />
+              <p style={{ color: 'black' }}>No. {dexNum}</p>
             </div>
             <p>{name}</p>
-            <img src={pokeball} alt="pokeball" className="preview-pokeball" />
+            <img src={pokeball} alt="pokeball" className="pokeball" style={{ filter: 'invert(1)', marginLeft: 'auto' }} />
           </div>
 
           <img src={image} alt={name} />
@@ -53,14 +53,14 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
 
       <div className="card" onClick={handleCardClick} onMouseEnter={() => setShowPreview(true)} onMouseLeave={() => setShowPreview(false)}>
         <div className="icon-wrapper">
-          <img src={icon} alt={name} className="card-icon" />
+          <img src={icon} alt={name} className="icon" />
           <p>No. {dexNum}</p>
         </div>
         <div className="name-wrapper">
           <p>{name}</p>
         </div>
         <div style={{ width: '20%', display: 'flex', justifyContent: 'end' }}>
-          <img src={pokeball} alt="pokeball" className="card-pokeball" />
+          <img src={pokeball} alt="pokeball" className="pokeball" />
         </div>
       </div>
     </div>
