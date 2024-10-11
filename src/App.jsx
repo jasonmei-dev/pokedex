@@ -6,9 +6,11 @@ import axios from 'axios';
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getAllPokemon = async () => {
     try {
+      setLoading(true);
       const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1025');
 
       const results = res.data.results;
@@ -21,6 +23,7 @@ function App() {
       );
 
       setAllPokemon(pokemonData);
+      setLoading(false);
     } catch (error) {
       console.log('Error fetching Pokemon Data:', error);
     }
@@ -33,7 +36,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage allPokemon={allPokemon} />} />
+        <Route path="/" element={<HomePage allPokemon={allPokemon} loading={loading} />} />
         <Route path="/pokemon/:id" element={<PokemonPage />} />
       </Routes>
     </Router>

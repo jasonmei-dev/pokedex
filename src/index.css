@@ -10,6 +10,22 @@
   height: 100vh;
   /* background: linear-gradient(115deg, #fefdfd, 48%, #fd4c3f 48% 55%, #fd6e3f 55%); */
   background: linear-gradient(115deg, #fff1ff, 48%, #f3533b 48% 55%, #fb7248 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Extra small devices (phones, portrait) & Small devices (phones, landscape) */
