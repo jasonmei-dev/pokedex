@@ -6,6 +6,59 @@ const PokemonList = ({ allPokemon, searchText }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollableDivRef = useRef(null);
 
+  const validDashedNames = [
+    'f',
+    'm',
+    'mime',
+    'oh',
+    'jr',
+    'z',
+    'null',
+    'o',
+    'koko',
+    'lele',
+    'bulu',
+    'fini',
+    'rime',
+    'tusk',
+    'tail',
+    'bonnet',
+    'mane',
+    'wing',
+    'shocks',
+    'treads',
+    'bundle',
+    'hands',
+    'jugulis',
+    'moth',
+    'thorns',
+    'chien',
+    'pao',
+    'lu',
+    'yu',
+    'moon',
+    'valiant',
+    'wake',
+    'leaves',
+    'fire',
+    'bolt',
+    'boulder',
+    'crown',
+  ];
+
+  const checkName = (name) => {
+    if (name.includes('-')) {
+      const nameArray = name.split('-');
+
+      if (validDashedNames.includes(nameArray[1])) {
+        return name;
+      } else {
+        return nameArray[0];
+      }
+    }
+    return name;
+  };
+
   const handleScroll = () => {
     const scrollTop = scrollableDivRef.current.scrollTop;
     setScrollPosition(scrollTop);
@@ -38,16 +91,15 @@ const PokemonList = ({ allPokemon, searchText }) => {
     <div ref={scrollableDivRef} className="list-container">
       {allPokemon.map(
         (pokemon) =>
-          pokemon.name.includes(searchText) && (
+          checkName(pokemon.name).includes(searchText) && (
             <PokemonCard
               key={pokemon.id}
               id={pokemon.id}
               dexNum={pokemon.id.toString().padStart(3, '0')}
-              // icon={pokemon.sprites.versions['generation-viii'].icons.front_default}
               icon={pokemon.sprites.other['official-artwork'].front_default}
               // icon={pokemon.sprites.other.home.front_default}
               image={pokemon.sprites.other.home.front_default}
-              name={pokemon.name.replace(/^./, (str) => str.toUpperCase())}
+              name={checkName(pokemon.name).replace(/^./, (str) => str.toUpperCase())}
               types={pokemon.types}
               weight={Number(pokemon.weight / 10)}
               height={Number(pokemon.height / 10)}
