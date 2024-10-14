@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Spinner from '../components/Spinner';
 import pokeball from '../assets/pokeball.png';
-import '../styles/PokemonCard.css';
+import '../styles/PokemonPage.css';
 import axios from 'axios';
 
 const PokemonPage = () => {
@@ -23,10 +24,9 @@ const PokemonPage = () => {
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
       setSpeciesData(res.data);
+      setLoading(false);
     } catch (error) {
       console.log('Error fetching Pokemon Species Data:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -35,62 +35,67 @@ const PokemonPage = () => {
   }, []);
 
   return (
-    <div className="preview">
+    <div className="page-container">
       {loading ? (
-        <div>Loading... </div>
+        <Spinner />
       ) : (
-        <div className="preview">
-          <div onClick={handleBack}>Back</div>
-          <div className="stat-container-title">
-            <img src={icon} alt={name} className="image-title" />
-            <p style={{ width: '180px', color: 'black' }}>No. {dexNum}</p>
-            <p>{name}</p>
-            <img src={pokeball} alt="pokeball" className="pokeball-title" />
+        <div className="page">
+          <div className="image-container">
+            <img src={image} alt={name} />
           </div>
-
-          <img src={image} alt={name} />
-
-          <div style={{ display: 'flex', width: '100%' }}>
-            <div style={{ background: '#dbdbd9', textAlign: 'center' }} className="stats-left">
-              <p>Type</p>
-              <p>Height</p>
-              <p>Weight</p>
+          <div className="info-container">
+            <div className="header">
+              <div className="icon-wrapper">
+                <img src={icon} alt={name} className="icon" />
+                <p style={{ color: 'black' }}>No. {dexNum}</p>
+              </div>
+              <p>{name}</p>
+              <img src={pokeball} alt="pokeball" className="pokeball" style={{ filter: 'invert(1)', marginLeft: 'auto' }} />
             </div>
 
-            <div style={{ background: '#fff' }} className="stats-right">
-              {types.length > 1 ? (
-                <p style={{ textTransform: 'capitalize' }}>
-                  {types[0].type.name} / {types[1].type.name}
-                </p>
-              ) : (
-                <p style={{ textTransform: 'capitalize' }}>{types[0].type.name}</p>
-              )}
-              <p>{height} m</p>
-              <p>{weight} kg</p>
-            </div>
-          </div>
-
-          <div className="flavor-text">
-            <p>{speciesData?.genera[7].genus}</p>
-            {/* Account for misordered data for Nidorino and Zubat flavor text from PokeAPI */}
-            {id !== 33 && id !== 41 ? <p>{speciesData?.flavor_text_entries[0].flavor_text}</p> : <p>{speciesData?.flavor_text_entries[2].flavor_text}</p>}
-          </div>
-
-          <div className="base-stats">
-            <div>
-              {statsName.map((statName, i) => (
-                <p key={i} className="stats">
-                  {statName}
-                </p>
-              ))}
+            <div className="genus-container">
+              <p>{speciesData?.genera[7].genus}</p>
             </div>
 
-            <div>
-              {stats.map((stat, i) => (
-                <p key={i} className="stats">
-                  {stat}
-                </p>
-              ))}
+            <div className="stats-container">
+              <div className="stats-left">
+                <p>Type</p>
+                <p>Height</p>
+                <p>Weight</p>
+              </div>
+
+              <div className="stats-right">
+                {types.length > 1 ? (
+                  <p style={{ textTransform: 'capitalize' }}>
+                    {types[0].type.name} / {types[1].type.name}
+                  </p>
+                ) : (
+                  <p style={{ textTransform: 'capitalize' }}>{types[0].type.name}</p>
+                )}
+                <p>{height} m</p>
+                <p>{weight} kg</p>
+              </div>
+            </div>
+            <div className="flavor-text-container">
+              <p>{speciesData?.flavor_text_entries[0].flavor_text.trim().replace(/\s+/g, ' ')}</p>
+            </div>
+
+            <div className="base-stats">
+              <div>
+                {statsName.map((statName, i) => (
+                  <p key={i} className="stats">
+                    {statName}
+                  </p>
+                ))}
+              </div>
+
+              <div>
+                {stats.map((stat, i) => (
+                  <p key={i} className="stats">
+                    {stat}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </div>

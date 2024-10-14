@@ -61,7 +61,7 @@
 
 .preview > img {
   filter: drop-shadow(2px 4px 12px black);
-  max-width: 350px;
+  max-width: 320px;
 }
 
 .preview-header {
@@ -107,34 +107,6 @@
   /* text-transform: capitalize; */
   padding: 10px;
   border-bottom: 1px solid #90979f38;
-}
-
-.base-stats {
-  display: flex;
-  width: 100%;
-  background: white;
-}
-
-.base-stats > div {
-  text-align: center;
-  width: 100%;
-}
-
-.stats {
-  font-size: 24px;
-  font-weight: 500;
-  text-transform: capitalize;
-  line-height: 45px;
-  background: #5a5a58;
-  color: white;
-}
-
-.stats:nth-child(1),
-.stats:nth-child(2),
-.stats:nth-child(3),
-.stats:nth-child(4),
-.stats:nth-child(5) {
-  border-bottom: 1px solid white;
 }
 
 /* Extra small devices (phones, portrait) */
