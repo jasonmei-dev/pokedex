@@ -89,26 +89,28 @@ const PokemonList = ({ allPokemon, searchText }) => {
 
   return (
     <div ref={scrollableDivRef} className="list-container">
-      {allPokemon.map(
-        (pokemon) =>
-          checkName(pokemon.name).includes(searchText) && (
-            <PokemonCard
-              key={pokemon.id}
-              id={pokemon.id}
-              dexNum={pokemon.id.toString().padStart(3, '0')}
-              icon={pokemon.sprites.other['official-artwork'].front_default}
-              // icon={pokemon.sprites.other.home.front_default}
-              image={pokemon.sprites.other.home.front_default}
-              name={checkName(pokemon.name).replace(/^./, (str) => str.toUpperCase())}
-              types={pokemon.types}
-              weight={Number(pokemon.weight / 10)}
-              height={Number(pokemon.height / 10)}
-              stats={pokemon.stats.map((stat) => stat.base_stat)}
-              statsName={pokemon.stats.map((stat) => stat.stat.name)}
-              scrollPosition={scrollPosition}
-            />
-          )
-      )}
+      {allPokemon
+        .filter((pokemon) => {
+          const nameMatches = checkName(pokemon.name).toLowerCase().includes(searchText.toLowerCase());
+          const idMatches = pokemon.id.toString().includes(searchText);
+          return nameMatches || idMatches;
+        })
+        .map((pokemon) => (
+          <PokemonCard
+            key={pokemon.id}
+            id={pokemon.id}
+            dexNum={pokemon.id.toString().padStart(3, '0')}
+            icon={pokemon.sprites.other['official-artwork'].front_default}
+            image={pokemon.sprites.other.home.front_default}
+            name={checkName(pokemon.name).replace(/^./, (str) => str.toUpperCase())}
+            types={pokemon.types}
+            weight={Number(pokemon.weight / 10)}
+            height={Number(pokemon.height / 10)}
+            stats={pokemon.stats.map((stat) => stat.base_stat)}
+            statsName={pokemon.stats.map((stat) => stat.stat.name)}
+            scrollPosition={scrollPosition}
+          />
+        ))}
     </div>
   );
 };
