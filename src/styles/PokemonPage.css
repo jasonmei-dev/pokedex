@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .genus-container {
@@ -46,6 +47,9 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-container > img {
@@ -60,6 +64,7 @@
   justify-content: center;
   gap: 10px;
   padding: 0 20px;
+  width: 600px;
 }
 
 .header {

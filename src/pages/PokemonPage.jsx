@@ -22,7 +22,10 @@ const PokemonPage = () => {
 
   const getSpeciesData = async () => {
     const parseEnglishText = (dataArray) => {
-      return dataArray.find((dataElement) => dataElement.language.name === 'en');
+      if (dataArray.length !== 0) {
+        return dataArray.find((dataElement) => dataElement.language.name === 'en');
+      }
+      return undefined;
     };
 
     try {
@@ -30,8 +33,8 @@ const PokemonPage = () => {
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
       // setSpeciesData(res.data);
-      setGenus(parseEnglishText(res.data.genera).genus);
-      setFlavorText(parseEnglishText(res.data.flavor_text_entries).flavor_text.trim().replace(/\s+/g, ' '));
+      setGenus(parseEnglishText(res.data.genera)?.genus);
+      setFlavorText(parseEnglishText(res.data.flavor_text_entries)?.flavor_text.trim().replace(/\s+/g, ' '));
       setLoading(false);
     } catch (error) {
       console.log('Error fetching Pokemon Species Data:', error);
@@ -62,7 +65,7 @@ const PokemonPage = () => {
             </div>
 
             <div className="genus-container">
-              <p>{genus}</p>
+              <p>{genus || 'Classification Unknown'}</p>
             </div>
 
             <div className="stats-container">
@@ -85,7 +88,7 @@ const PokemonPage = () => {
               </div>
             </div>
             <div className="flavor-text-container">
-              <p>{flavorText}</p>
+              <p>{flavorText || 'No Data Available'}</p>
             </div>
 
             <div className="base-stats">
