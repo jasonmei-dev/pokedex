@@ -120,35 +120,51 @@
 .page .stats-right > p {
   font-size: 20px;
   font-weight: 500;
-  /* text-transform: capitalize; */
-  padding: 10px;
+  padding: 20px;
   border-bottom: 1px solid #90979f38;
 }
 
 .base-stats-container {
-  display: flex;
+  padding: 10px 20px;
+  background-color: #5a5a58;
   width: 90%;
-  /* background: white; */
-}
-
-.base-stats-container > div {
-  text-align: center;
-  width: 100%;
 }
 
 .base-stat {
-  font-size: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2.4;
+  font-size: 20px;
   font-weight: 500;
-  text-transform: capitalize;
-  line-height: 45px;
-  background: #5a5a58;
   color: white;
 }
 
-.base-stat:nth-child(1),
-.base-stat:nth-child(2),
-.base-stat:nth-child(3),
-.base-stat:nth-child(4),
-.base-stat:nth-child(5) {
-  border-bottom: 1px solid white;
+.base-stat .stat-name {
+  text-transform: capitalize;
+  width: 40%;
+}
+
+.base-stat .stat-value {
+  text-align: end;
+  width: 10%;
+}
+
+.base-stat progress {
+  height: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+progress::-webkit-progress-value {
+  background-color: #2fce34;
+}
+
+progress::-moz-progress-bar {
+  background-color: #2fce34;
+}
+
+progress::-ms-fill {
+  background-color: #2fce34;
 }

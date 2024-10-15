@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 
-const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, stats, statsName, scrollPosition }) => {
+const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, stats, scrollPosition }) => {
   const [showPreview, setShowPreview] = useState(false);
 
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
   const handleCardClick = () => {
     localStorage.setItem('scrollPosition', scrollPosition);
 
-    navigate(`/pokemon/${id}`, { state: { id, dexNum, icon, image, name, types, weight, height, stats, statsName } });
+    navigate(`/pokemon/${id}`, { state: { id, dexNum, icon, image, name, types, weight, height, stats } });
   };
 
   return (

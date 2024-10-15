@@ -6,7 +6,6 @@ import '../styles/PokemonPage.css';
 import axios from 'axios';
 
 const PokemonPage = () => {
-  // const [speciesData, setSpeciesData] = useState(null);
   const [genus, setGenus] = useState(null);
   const [flavorText, setFlavorText] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -18,7 +17,7 @@ const PokemonPage = () => {
   };
 
   const location = useLocation();
-  const { id, dexNum, icon, image, name, types, weight, height, stats, statsName } = location.state || {};
+  const { id, dexNum, icon, image, name, types, weight, height, stats } = location.state || {};
 
   const getSpeciesData = async () => {
     const parseEnglishText = (dataArray) => {
@@ -32,7 +31,6 @@ const PokemonPage = () => {
       setLoading(true);
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
-      // setSpeciesData(res.data);
       setGenus(parseEnglishText(res.data.genera)?.genus);
       setFlavorText(parseEnglishText(res.data.flavor_text_entries)?.flavor_text.trim().replace(/\s+/g, ' '));
       setLoading(false);
@@ -93,21 +91,13 @@ const PokemonPage = () => {
             </div>
 
             <div className="base-stats-container">
-              <div>
-                {statsName.map((statName, i) => (
-                  <p key={i} className="base-stat">
-                    {statName}
-                  </p>
-                ))}
-              </div>
-
-              <div>
-                {stats.map((stat, i) => (
-                  <p key={i} className="base-stat">
-                    {stat}
-                  </p>
-                ))}
-              </div>
+              {stats.map((stat, i) => (
+                <div key={i} className="base-stat">
+                  {stat.stat.name === 'hp' ? <span className="stat-name">HP</span> : <span className="stat-name">{stat.stat.name}</span>}
+                  <progress max="150" value={stat.base_stat.toString()}></progress>
+                  <span className="stat-value">{stat.base_stat}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
