@@ -6,7 +6,9 @@ import '../styles/PokemonPage.css';
 import axios from 'axios';
 
 const PokemonPage = () => {
-  const [speciesData, setSpeciesData] = useState(null);
+  // const [speciesData, setSpeciesData] = useState(null);
+  const [genus, setGenus] = useState(null);
+  const [flavorText, setFlavorText] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -19,11 +21,17 @@ const PokemonPage = () => {
   const { id, dexNum, icon, image, name, types, weight, height, stats, statsName } = location.state || {};
 
   const getSpeciesData = async () => {
+    const parseEnglishText = (dataArray) => {
+      return dataArray.find((dataElement) => dataElement.language.name === 'en');
+    };
+
     try {
       setLoading(true);
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
-      setSpeciesData(res.data);
+      // setSpeciesData(res.data);
+      setGenus(parseEnglishText(res.data.genera).genus);
+      setFlavorText(parseEnglishText(res.data.flavor_text_entries).flavor_text.trim().replace(/\s+/g, ' '));
       setLoading(false);
     } catch (error) {
       console.log('Error fetching Pokemon Species Data:', error);
@@ -54,7 +62,7 @@ const PokemonPage = () => {
             </div>
 
             <div className="genus-container">
-              <p>{speciesData?.genera[7].genus}</p>
+              <p>{genus}</p>
             </div>
 
             <div className="stats-container">
@@ -77,7 +85,7 @@ const PokemonPage = () => {
               </div>
             </div>
             <div className="flavor-text-container">
-              <p>{speciesData?.flavor_text_entries[0].flavor_text.trim().replace(/\s+/g, ' ')}</p>
+              <p>{flavorText}</p>
             </div>
 
             <div className="base-stats">
