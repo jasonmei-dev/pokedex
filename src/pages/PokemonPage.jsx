@@ -25,7 +25,7 @@ const PokemonPage = () => {
       if (dataArray.length !== 0) {
         return dataArray.find((dataElement) => dataElement.language.name === 'en');
       }
-      return undefined;
+      return null;
     };
 
     try {
@@ -51,6 +51,7 @@ const PokemonPage = () => {
         <Spinner />
       ) : (
         <div className="page">
+          <i onClick={handleBack} className="fa-solid fa-arrow-left back-icon"></i>
           <div className="image-container">
             <img src={image} alt={name} />
           </div>
@@ -91,10 +92,10 @@ const PokemonPage = () => {
               <p>{flavorText || 'No Data Available'}</p>
             </div>
 
-            <div className="base-stats">
+            <div className="base-stats-container">
               <div>
                 {statsName.map((statName, i) => (
-                  <p key={i} className="stats">
+                  <p key={i} className="base-stat">
                     {statName}
                   </p>
                 ))}
@@ -102,7 +103,7 @@ const PokemonPage = () => {
 
               <div>
                 {stats.map((stat, i) => (
-                  <p key={i} className="stats">
+                  <p key={i} className="base-stat">
                     {stat}
                   </p>
                 ))}
