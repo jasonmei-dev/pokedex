@@ -70,7 +70,6 @@
   font-size: 24px;
   font-weight: 700;
   color: white;
-  margin-left: -5%;
   padding: 0 10px;
   width: 110%;
   height: 65px;
@@ -78,30 +77,31 @@
   background: linear-gradient(135deg, #f0501d 42%, black 42%);
 }
 
-.stats-container {
+.preview .stats-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
-.stats-left {
+.preview .stats-left {
   background: #dbdbd9;
   text-align: center;
 }
 
-.stats-right {
+.preview .stats-right {
   background: #fff;
 }
 
-.stats-left,
-.stats-right {
+.preview .stats-left,
+.preview .stats-right {
   display: flex;
   flex-direction: column;
   width: 50%;
-  font-size: 20px;
 }
 
-.stats-left > p,
-.stats-right > p {
+.preview .stats-left > p,
+.preview .stats-right > p {
   font-size: 20px;
   font-weight: 500;
   /* text-transform: capitalize; */
