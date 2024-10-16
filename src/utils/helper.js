@@ -19,7 +19,7 @@ export const pokemonTypeColors = {
   fairy: '#D685AD',
 };
 
-export const validDashedNames = [
+const validDashedNames = [
   'f',
   'm',
   'mime',
@@ -58,3 +58,16 @@ export const validDashedNames = [
   'boulder',
   'crown',
 ];
+
+export const checkName = (name) => {
+  if (name.includes('-')) {
+    const nameArray = name.split('-');
+
+    if (validDashedNames.includes(nameArray[1])) {
+      return name;
+    } else {
+      return nameArray[0];
+    }
+  }
+  return name;
+};
