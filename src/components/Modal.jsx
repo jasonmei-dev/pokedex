@@ -11,8 +11,9 @@ const Modal = ({ handleCloseModal, ability }) => {
     setLoading(true);
     try {
       const res = await axios.get(ability.ability.url);
+      const englishDescription = parseEnglishAbility(res.data.flavor_text_entries)?.flavor_text;
 
-      setDescription(parseEnglishAbility(res.data.flavor_text_entries)?.flavor_text);
+      setDescription(englishDescription);
     } catch (error) {
       console.log('Error fetching ability data:', error);
     } finally {

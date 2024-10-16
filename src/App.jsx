@@ -12,7 +12,6 @@ function App() {
     setLoading(true);
     try {
       const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=905');
-
       const results = res.data.results;
       const pokemonData = await Promise.all(
         results.map(async (pokemon) => {

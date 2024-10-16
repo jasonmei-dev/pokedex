@@ -35,9 +35,11 @@ const PokemonPage = () => {
     setLoading(true);
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+      const englishGenus = parseEnglishText(res.data.genera)?.genus;
+      const englishFlavorText = parseEnglishText(res.data.flavor_text_entries)?.flavor_text.trim().replace(/\s+/g, ' ');
 
-      setGenus(parseEnglishText(res.data.genera)?.genus);
-      setFlavorText(parseEnglishText(res.data.flavor_text_entries)?.flavor_text.trim().replace(/\s+/g, ' '));
+      setGenus(englishGenus);
+      setFlavorText(englishFlavorText);
     } catch (error) {
       console.log('Error fetching Pokemon species data:', error);
     } finally {
