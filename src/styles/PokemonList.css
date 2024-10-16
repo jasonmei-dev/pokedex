@@ -13,7 +13,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #fb7248;
+  /* background-color: #fb7248; */
+  background-color: #fe6e3f;
 }
 
 /* Extra small devices (phones, portrait) */

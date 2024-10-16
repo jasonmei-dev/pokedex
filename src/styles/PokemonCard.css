@@ -17,7 +17,8 @@
 }
 
 .card:hover {
-  background: linear-gradient(135deg, #f0501d 40%, black 40%);
+  /* background: linear-gradient(135deg, #f0501d 40%, black 40%); */
+  background: linear-gradient(135deg, #ff5500 40%, black 40%);
   border-radius: 50px;
   cursor: pointer;
   color: white;
@@ -74,7 +75,9 @@
   width: 110%;
   height: 65px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #f0501d 42%, black 42%);
+  /* background: linear-gradient(135deg, #f0501d 42%, black 42%); */
+  background: linear-gradient(135deg, #ff5500 42%, black 42%);
+  /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8); */
 }
 
 .preview .stats-container {
@@ -86,6 +89,7 @@
 
 .preview .stats-left {
   background: #dbdbd9;
+  /* background: #d2cfcd; */
   text-align: center;
 }
 
@@ -122,7 +126,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 45%, black 45%);
+    /* background: linear-gradient(135deg, #f0501d 45%, black 45%); */
+    background: linear-gradient(135deg, #ff5500 45%, black 45%);
   }
 
   .preview {
@@ -142,7 +147,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 44%, black 44%);
+    /* background: linear-gradient(135deg, #f0501d 44%, black 44%); */
+    background: linear-gradient(135deg, #ff5500 44%, black 44%);
   }
 
   .preview {
@@ -162,7 +168,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+    /* background: linear-gradient(135deg, #f0501d 43%, black 43%); */
+    background: linear-gradient(135deg, #ff5500 43%, black 43%);
   }
 
   .preview {
@@ -181,7 +188,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+    /* background: linear-gradient(135deg, #f0501d 43%, black 43%); */
+    background: linear-gradient(135deg, #ff5500 43%, black 43%);
   }
 
   .preview {
@@ -199,7 +207,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 42%, black 42%);
+    /* background: linear-gradient(135deg, #f0501d 42%, black 42%); */
+    background: linear-gradient(135deg, #ff5500 42%, black 42%);
   }
 
   .preview {
@@ -229,7 +238,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%);
+    /* background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%); */
+    background: linear-gradient(120deg, #ff5500 44.4%, black 44.4%);
   }
 
   .icon-wrapper {
@@ -251,7 +261,8 @@
 
   .preview-header {
     font-size: 22px;
-    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+    /* background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%); */
+    background: linear-gradient(135deg, #ff5500 44.2%, black 44.2%);
   }
 
   .stats-left,
@@ -271,7 +282,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%);
+    /* background: linear-gradient(120deg, #f0501d 44.4%, black 44.4%); */
+    background: linear-gradient(120deg, #ff5500 44.4%, black 44.4%);
   }
 
   .icon-wrapper {
@@ -293,7 +305,8 @@
 
   .preview-header {
     font-size: 22px;
-    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+    /* background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%); */
+    background: linear-gradient(135deg, #ff5500 44.2%, black 44.2%);
   }
 
   .stats-left,
@@ -313,7 +326,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 44.4%, black 44.4%);
+    /* background: linear-gradient(135deg, #f0501d 44.4%, black 44.4%); */
+    background: linear-gradient(135deg, #ff5500 44.4%, black 44.4%);
   }
 
   .icon-wrapper {
@@ -334,7 +348,8 @@
 
   .preview-header {
     font-size: 22px;
-    background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
+    /* background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%); */
+    background: linear-gradient(135deg, #ff5500 44.2%, black 44.2%);
   }
 
   .stats-left,
@@ -355,7 +370,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 43%, black 43%);
+    /* background: linear-gradient(135deg, #f0501d 43%, black 43%); */
+    background: linear-gradient(135deg, #ff5500 43%, black 43%);
   }
 }
 
@@ -365,7 +381,8 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #f0501d 42%, black 42%);
+    /* background: linear-gradient(135deg, #f0501d 42%, black 42%); */
+    background: linear-gradient(135deg, #ff5500 42%, black 42%);
   }
 }
 
