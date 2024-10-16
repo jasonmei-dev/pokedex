@@ -71,3 +71,17 @@ export const checkName = (name) => {
   }
   return name;
 };
+
+export const parseEnglishText = (dataArray) => {
+  if (dataArray.length !== 0) {
+    return dataArray.find((dataElement) => dataElement.language.name === 'en');
+  }
+  return null;
+};
+
+export const parseEnglishAbility = (dataArray) => {
+  if (dataArray.length !== 0) {
+    return dataArray.find((dataElement) => dataElement.language.name === 'en' && (dataElement.version_group.name === 'scarlet-violet' || dataElement.version_group.name === 'sun-moon'));
+  }
+  return null;
+};

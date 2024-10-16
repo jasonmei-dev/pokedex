@@ -137,6 +137,15 @@
   text-transform: capitalize;
 }
 
+.info-icon {
+  font-size: 18px;
+}
+
+.info-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .flavor-text-container {
   background: #fff;
   padding: 20px;

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import TypeTile from '../components/TypeTile';
+import Modal from '../components/Modal';
+import { parseEnglishText } from '../utils/helper';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonPage.css';
 import axios from 'axios';
@@ -10,6 +12,7 @@ const PokemonPage = () => {
   const [genus, setGenus] = useState(null);
   const [flavorText, setFlavorText] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [selectedAbility, setSelectedAblility] = useState(null);
 
   const navigate = useNavigate();
 
@@ -20,23 +23,25 @@ const PokemonPage = () => {
   const location = useLocation();
   const { id, dexNum, icon, image, name, types, weight, height, abilities, stats } = location.state || {};
 
-  const getSpeciesData = async () => {
-    const parseEnglishText = (dataArray) => {
-      if (dataArray.length !== 0) {
-        return dataArray.find((dataElement) => dataElement.language.name === 'en');
-      }
-      return null;
-    };
+  const handleShowModal = (abilityObj) => {
+    setSelectedAblility(abilityObj);
+  };
 
+  const handleCloseModal = () => {
+    setSelectedAblility(null);
+  };
+
+  const getSpeciesData = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
       setGenus(parseEnglishText(res.data.genera)?.genus);
       setFlavorText(parseEnglishText(res.data.flavor_text_entries)?.flavor_text.trim().replace(/\s+/g, ' '));
-      setLoading(false);
     } catch (error) {
-      console.log('Error fetching Pokemon Species Data:', error);
+      console.log('Error fetching Pokemon species data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -92,10 +97,10 @@ const PokemonPage = () => {
                       <p key={i} className="ability">
                         {abilityObj.ability.name}{' '}
                         <span>
-                          {' '}
-                          <i style={{ fontSize: '18px' }} className="fa-solid fa-circle-info"></i>
+                          <i onClick={() => handleShowModal(abilityObj)} className="fa-solid fa-circle-info info-icon"></i>
                         </span>
                       </p>
+                      {selectedAbility === abilityObj && <Modal handleCloseModal={handleCloseModal} ability={abilityObj} />}
                     </>
                   ))}
                 </div>
