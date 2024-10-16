@@ -18,7 +18,7 @@ const PokemonPage = () => {
   };
 
   const location = useLocation();
-  const { id, dexNum, icon, image, name, types, weight, height, stats } = location.state || {};
+  const { id, dexNum, icon, image, name, types, weight, height, abilities, stats } = location.state || {};
 
   const getSpeciesData = async () => {
     const parseEnglishText = (dataArray) => {
@@ -73,20 +73,35 @@ const PokemonPage = () => {
                 <p>Type</p>
                 <p>Height</p>
                 <p>Weight</p>
-                {/* <p>Abilities</p> */}
+                <div className="ability-title">
+                  <p>Abilities</p>
+                </div>
               </div>
 
               <div className="stats-right">
                 <div className="type-container">
-                  {types.map((type, i) => (
-                    <TypeTile type={type.type.name} key={i} />
+                  {types.map((typeObj, i) => (
+                    <TypeTile type={typeObj.type.name} key={i} />
                   ))}
                 </div>
                 <p>{height} m</p>
                 <p>{weight} kg</p>
-                {/* <p>Overgrow, Chorophyll</p> */}
+                <div className="ability-container">
+                  {abilities.map((abilityObj, i) => (
+                    <>
+                      <p key={i} className="ability">
+                        {abilityObj.ability.name}{' '}
+                        <span>
+                          {' '}
+                          <i style={{ fontSize: '18px' }} className="fa-solid fa-circle-info"></i>
+                        </span>
+                      </p>
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
+
             <div className="flavor-text-container">
               <p>{flavorText || 'No Data Available'}</p>
             </div>

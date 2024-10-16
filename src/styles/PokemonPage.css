@@ -106,21 +106,42 @@
   flex-direction: column;
   width: 50%;
   font-size: 20px;
+  font-weight: 500;
 }
 
 .page .stats-left > p,
-.page .stats-right > p {
-  font-size: 20px;
-  font-weight: 500;
+.page .stats-right > p,
+.ability-container {
   padding: 10px;
   border-bottom: 1px solid #90979f38;
+}
+
+.ability-title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #90979f38;
+  padding: 10px;
+}
+
+/* .ability-container {
+  padding: 10px;
+  border-bottom: 1px solid #90979f38;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+.ability {
+  text-transform: capitalize;
 }
 
 .flavor-text-container {
   background: #fff;
   padding: 20px;
   width: 90%;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
   display: flex;

@@ -54,6 +54,7 @@ const PokemonList = ({ allPokemon, searchText }) => {
             types={pokemon.types}
             weight={Number(pokemon.weight / 10)}
             height={Number(pokemon.height / 10)}
+            abilities={pokemon.abilities}
             stats={pokemon.stats}
             scrollPosition={scrollPosition}
           />
