@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Spinner from '../components/Spinner';
+import TypeTile from '../components/TypeTile';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonPage.css';
 import axios from 'axios';
@@ -72,18 +73,18 @@ const PokemonPage = () => {
                 <p>Type</p>
                 <p>Height</p>
                 <p>Weight</p>
+                {/* <p>Abilities</p> */}
               </div>
 
               <div className="stats-right">
-                {types.length > 1 ? (
-                  <p style={{ textTransform: 'capitalize' }}>
-                    {types[0].type.name} / {types[1].type.name}
-                  </p>
-                ) : (
-                  <p style={{ textTransform: 'capitalize' }}>{types[0].type.name}</p>
-                )}
+                <div className="type-container">
+                  {types.map((type, i) => (
+                    <TypeTile type={type.type.name} key={i} />
+                  ))}
+                </div>
                 <p>{height} m</p>
                 <p>{weight} kg</p>
+                {/* <p>Overgrow, Chorophyll</p> */}
               </div>
             </div>
             <div className="flavor-text-container">

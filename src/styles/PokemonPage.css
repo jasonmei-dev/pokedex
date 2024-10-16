@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: linear-gradient(135deg, #fff1ff 8%, #f3533b 8% 23%, #fb7248 23% 77%, #f3533b 77% 92%, #fff1ff 92%); */
-  background: linear-gradient(135deg, #fefdfd 8%, #fe4c3f 8% 23%, #fe6e3f 23% 77%, #fe4c3f 77% 92%, #fefdfd 92%);
+  background: linear-gradient(135deg, #fff1ff 8%, #f3533b 8% 23%, #fb7248 23% 77%, #f3533b 77% 92%, #fff1ff 92%);
+  /* background: linear-gradient(135deg, #fefdfd 8%, #fe4c3f 8% 23%, #fe6e3f 23% 77%, #fe4c3f 77% 92%, #fefdfd 92%); */
 }
 
 .back-icon {
@@ -44,11 +44,10 @@
   padding: 0 10px;
   height: 65px;
   border-radius: 5px;
-  /* background: linear-gradient(135deg, #f0501d 40%, black 40%); */
-  background: linear-gradient(135deg, #ff5500 40%, black 40%);
+  background: linear-gradient(135deg, #f0501d 40%, black 40%);
+  /* background: linear-gradient(135deg, #ff5500 40%, black 40%); */
   width: 100%;
   margin-bottom: 10px;
-  /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8); */
 }
 
 .icon-wrapper {
@@ -87,18 +86,6 @@
   font-weight: 500;
 }
 
-.flavor-text-container {
-  background: #fff;
-  padding: 20px;
-  width: 90%;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .page .stats-container {
   display: flex;
   width: 90%;
@@ -125,8 +112,20 @@
 .page .stats-right > p {
   font-size: 20px;
   font-weight: 500;
-  padding: 20px;
+  padding: 10px;
   border-bottom: 1px solid #90979f38;
+}
+
+.flavor-text-container {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .base-stats-container {

@@ -1,50 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
 import PokemonCard from './PokemonCard';
+import { validDashedNames } from '../utils/helper';
 import '../styles/PokemonList.css';
 
 const PokemonList = ({ allPokemon, searchText }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollableDivRef = useRef(null);
-
-  const validDashedNames = [
-    'f',
-    'm',
-    'mime',
-    'oh',
-    'jr',
-    'z',
-    'null',
-    'o',
-    'koko',
-    'lele',
-    'bulu',
-    'fini',
-    'rime',
-    'tusk',
-    'tail',
-    'bonnet',
-    'mane',
-    'wing',
-    'shocks',
-    'treads',
-    'bundle',
-    'hands',
-    'jugulis',
-    'moth',
-    'thorns',
-    'chien',
-    'pao',
-    'lu',
-    'yu',
-    'moon',
-    'valiant',
-    'wake',
-    'leaves',
-    'fire',
-    'bolt',
-    'boulder',
-    'crown',
-  ];
 
   const checkName = (name) => {
     if (name.includes('-')) {

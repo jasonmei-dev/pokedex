@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TypeTile from './TypeTile';
 import pokeball from '../assets/pokeball.png';
 import '../styles/PokemonCard.css';
 
@@ -37,13 +38,11 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, sta
             </div>
 
             <div className="stats-right">
-              {types.length > 1 ? (
-                <p style={{ textTransform: 'capitalize' }}>
-                  {types[0].type.name} / {types[1].type.name}
-                </p>
-              ) : (
-                <p style={{ textTransform: 'capitalize' }}>{types[0].type.name}</p>
-              )}
+              <div className="type-container">
+                {types.map((type, i) => (
+                  <TypeTile type={type.type.name} key={i} />
+                ))}
+              </div>
               <p>{height} m</p>
               <p>{weight} kg</p>
             </div>
