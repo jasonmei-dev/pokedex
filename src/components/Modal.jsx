@@ -1,16 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Spinner from './Spinner';
 import { parseEnglishAbility } from '../utils/helper';
+import '../styles/Modal.css';
 import axios from 'axios';
 
-const Modal = ({ handleCloseModal, ability }) => {
+const Modal = ({ handleCloseModal, abilityObj }) => {
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const modalRef = useRef();
+
+  const handleOutsideClick = (e) => {
+    if (modalRef.current === e.target) {
+      handleCloseModal();
+    }
+  };
 
   const getAbilityDetails = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(ability.ability.url);
+      const res = await axios.get(abilityObj.ability.url);
       const englishDescription = parseEnglishAbility(res.data.flavor_text_entries)?.flavor_text;
 
       setDescription(englishDescription);
@@ -23,9 +32,19 @@ const Modal = ({ handleCloseModal, ability }) => {
 
   useEffect(() => {
     getAbilityDetails();
-  }, [ability]);
+  }, []);
 
-  return <div className="modal-container">{loading ? <Spinner /> : <p>{description}</p>}</div>;
+  return (
+    <div className="modal-container" ref={modalRef} onClick={handleOutsideClick}>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="modal-content">
+          <p>{description}</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Modal;

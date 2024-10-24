@@ -102,7 +102,7 @@ const PokemonPage = () => {
                           <i onClick={() => handleShowModal(abilityObj)} className="fa-solid fa-circle-info info-icon"></i>
                         </span>
                       </p>
-                      {selectedAbility === abilityObj && <Modal handleCloseModal={handleCloseModal} ability={abilityObj} />}
+                      {selectedAbility === abilityObj && <Modal handleCloseModal={handleCloseModal} abilityObj={abilityObj} />}
                     </>
                   ))}
                 </div>
