@@ -70,7 +70,7 @@
   font-size: 24px;
   font-weight: 700;
   color: white;
-  padding: 0 10px;
+  padding: 10px;
   width: 110%;
   height: 65px;
   border-radius: 5px;
@@ -254,13 +254,13 @@
     background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
   }
 
-  .stats-left,
-  .stats-right {
+  .preview .stats-left,
+  .preview .stats-right {
     font-size: 18px;
   }
 
-  .stats-left > p,
-  .stats-right > p {
+  .preview .stats-left > p,
+  .preview .stats-right > p {
     font-size: 18px;
   }
 }
@@ -296,13 +296,13 @@
     background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
   }
 
-  .stats-left,
-  .stats-right {
+  .preview .stats-left,
+  .preview .stats-right {
     font-size: 18px;
   }
 
-  .stats-left > p,
-  .stats-right > p {
+  .preview .stats-left > p,
+  .preview .stats-right > p {
     font-size: 18px;
   }
 }
@@ -337,13 +337,13 @@
     background: linear-gradient(135deg, #f0501d 44.2%, black 44.2%);
   }
 
-  .stats-left,
-  .stats-right {
+  .preview .stats-left,
+  .preview .stats-right {
     font-size: 18px;
   }
 
-  .stats-left > p,
-  .stats-right > p {
+  .preview .stats-left > p,
+  .preview .stats-right > p {
     font-size: 18px;
   }
 }

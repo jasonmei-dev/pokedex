@@ -27,7 +27,7 @@
   gap: 50px;
   width: 100%;
   max-height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .image-container {
@@ -89,6 +89,8 @@
   overflow-y: auto;
   width: 100%;
   padding: 0 5%;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .genus-container {
@@ -97,9 +99,8 @@
   justify-content: center;
   background: #dbdbd9;
   line-height: 2.4;
+  padding: 5px;
   width: 100%;
-  font-size: 20px;
-  font-weight: 500;
 }
 
 .page-content .stats-container {
@@ -121,8 +122,6 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  font-size: 20px;
-  font-weight: 500;
 }
 
 .page-content .stats-left > p,
@@ -158,8 +157,6 @@
   background: #fff;
   padding: 20px;
   width: 100%;
-  font-size: 20px;
-  font-weight: 500;
   line-height: 1.4;
   display: flex;
   align-items: center;
@@ -177,8 +174,6 @@
   align-items: center;
   justify-content: center;
   line-height: 2.4;
-  font-size: 20px;
-  font-weight: 500;
   color: white;
 }
 
@@ -208,4 +203,165 @@ progress::-moz-progress-bar {
 
 progress::-ms-fill {
   background-color: #2fce34;
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 449.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 250px;
+  }
+
+  .info-container {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .header {
+    font-size: 20px;
+    background: linear-gradient(135deg, #f0501d 45%, black 45%);
+  }
+
+  .scrollable-content {
+    font-size: 16px;
+  }
+
+  .base-stat progress {
+    height: 16px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 479.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 300px;
+  }
+
+  .info-container {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .header {
+    font-size: 22px;
+  }
+
+  .scrollable-content {
+    font-size: 16px;
+  }
+
+  .base-stat progress {
+    height: 16px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 527.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 300px;
+  }
+
+  .info-container {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .header {
+    font-size: 22px;
+  }
+
+  .scrollable-content {
+    font-size: 16px;
+  }
+
+  .base-stat progress {
+    height: 16px;
+  }
+}
+
+@media (min-width: 528px) and (max-width: 575.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 300px;
+  }
+
+  .info-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .header {
+    font-size: 24px;
+  }
+
+  .scrollable-content {
+    font-size: 18px;
+  }
+
+  .base-stat progress {
+    height: 18px;
+  }
+}
+
+/* Small devices (phones, landscape) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 350px;
+  }
+
+  .info-container {
+    width: 100%;
+  }
+}
+
+/* Medium devices (tablets, portrait) */
+@media (min-width: 768px) and (max-width: 849.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 350px;
+  }
+
+  .info-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 889.98px) {
+  .page-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container > img {
+    max-width: 350px;
+  }
+
+  .info-container {
+    width: 100%;
+  }
 }
