@@ -20,16 +20,37 @@
   filter: drop-shadow(2px 4px 12px black);
 }
 
+.page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .image-container > img {
   filter: drop-shadow(2px 4px 12px black);
   max-width: 400px;
 }
 
-.page {
+.info-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 50%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow: hidden;
+  gap: 20px;
 }
 
 .header {
@@ -38,12 +59,11 @@
   font-size: 26px;
   font-weight: 700;
   color: white;
-  padding: 0 10px;
+  padding: 10px;
   height: 65px;
   border-radius: 5px;
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
   width: 100%;
-  margin-bottom: 10px;
 }
 
 .icon-wrapper {
@@ -61,14 +81,14 @@
   width: 30px;
 }
 
-.info-container {
+.scrollable-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  padding: 0 20px;
-  width: 600px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 0 5%;
 }
 
 .genus-container {
@@ -77,27 +97,27 @@
   justify-content: center;
   background: #dbdbd9;
   line-height: 2.4;
-  width: 90%;
+  width: 100%;
   font-size: 20px;
   font-weight: 500;
 }
 
-.page .stats-container {
+.page-content .stats-container {
   display: flex;
-  width: 90%;
+  width: 100%;
 }
 
-.page .stats-left {
+.page-content .stats-left {
   background: #dbdbd9;
   text-align: center;
 }
 
-.page .stats-right {
+.page-content .stats-right {
   background: #fff;
 }
 
-.page .stats-left,
-.page .stats-right {
+.page-content .stats-left,
+.page-content .stats-right {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -105,8 +125,8 @@
   font-weight: 500;
 }
 
-.page .stats-left > p,
-.page .stats-right > p,
+.page-content .stats-left > p,
+.page-content .stats-right > p,
 .ability-container {
   padding: 10px;
   border-bottom: 1px solid #90979f38;
@@ -137,7 +157,7 @@
 .flavor-text-container {
   background: #fff;
   padding: 20px;
-  width: 90%;
+  width: 100%;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
@@ -149,14 +169,13 @@
 .base-stats-container {
   padding: 10px 20px;
   background-color: #5a5a58;
-  width: 90%;
+  width: 100%;
 }
 
 .base-stat {
-  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   line-height: 2.4;
   font-size: 20px;
   font-weight: 500;
@@ -165,12 +184,12 @@
 
 .base-stat .stat-name {
   text-transform: capitalize;
-  width: 40%;
+  width: 30%;
 }
 
 .base-stat .stat-value {
   text-align: end;
-  width: 10%;
+  width: 15%;
 }
 
 .base-stat progress {
