@@ -11,7 +11,7 @@ function App() {
   const getAllPokemon = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1025');
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=151');
       const results = res.data.results;
       const pokemonData = await Promise.all(
         results.map(async (pokemon) => {
