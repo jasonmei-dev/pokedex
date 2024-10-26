@@ -55,13 +55,13 @@
 
 @media (min-width: 450px) and (max-width: 479.98px) {
   .type-tile {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media (min-width: 480px) and (max-width: 527.98px) {
   .type-tile {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
