@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #fff1ff 8%, #f3533b 8% 23%, #fb7248 23% 77%, #f3533b 77% 92%, #fff1ff 92%);
+  overflow-x: hidden;
 }
 
 .back-icon {
@@ -25,7 +26,6 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
-  width: 100vw;
   padding: 30px 10px;
 }
 
