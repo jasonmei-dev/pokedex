@@ -6,7 +6,7 @@
 }
 
 .app-container {
-  width: 100%;
+  width: 100vw;
   height: 100svh;
   background: linear-gradient(115deg, #fff1ff 48%, #f3533b 48% 55%, #fb7248 55%);
   display: flex;
