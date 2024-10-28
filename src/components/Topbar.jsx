@@ -3,7 +3,7 @@ import '../styles/Topbar.css';
 const Topbar = ({ handleOnChange, searchText, clearSearch }) => {
   return (
     <div className="topbar">
-      <p>Pokédex</p>
+      <h1>Pokédex</h1>
       <div className="search-wrapper">
         <i className="fa-solid fa-magnifying-glass"></i>
         <input onChange={handleOnChange} value={searchText} type="text" id="search-input" placeholder="Search" />
