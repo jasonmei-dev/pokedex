@@ -16,10 +16,8 @@ const HomePage = ({ allPokemon, loading }) => {
 
   return (
     <div className="app-container">
-      <div className="app-content">
-        <Topbar handleOnChange={handleOnChange} searchText={searchText} clearSearch={clearSearch} />
-        {loading ? <Spinner /> : <PokemonList allPokemon={allPokemon} searchText={searchText} />}
-      </div>
+      <Topbar handleOnChange={handleOnChange} searchText={searchText} clearSearch={clearSearch} />
+      {loading ? <Spinner /> : <PokemonList allPokemon={allPokemon} searchText={searchText} />}
     </div>
   );
 };
