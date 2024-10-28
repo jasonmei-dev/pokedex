@@ -53,90 +53,88 @@ const PokemonPage = () => {
 
   return (
     <div className="page-container">
-      <div className="page-content">
-        {loading ? (
-          <Spinner />
-        ) : (
-          <>
-            <i onClick={handleBack} className="fa-solid fa-arrow-left back-icon"></i>
-            <div className="image-container">
-              <img src={image} alt={name} />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="page-content">
+          <i onClick={handleBack} className="fa-solid fa-arrow-left back-icon"></i>
+          <div className="image-container">
+            <img src={image} alt={name} />
+          </div>
+          <div className="info-container">
+            <div className="info-header">
+              <div className="icon-wrapper">
+                <img src={icon} alt={name} className="icon" />
+                <p style={{ color: 'black' }}>No. {dexNum}</p>
+              </div>
+              <p>{name}</p>
+              <img src={pokeball} alt="pokeball" className="pokeball" style={{ filter: 'invert(1)', marginLeft: 'auto' }} />
             </div>
-            <div className="info-container">
-              <div className="header">
-                <div className="icon-wrapper">
-                  <img src={icon} alt={name} className="icon" />
-                  <p style={{ color: 'black' }}>No. {dexNum}</p>
-                </div>
-                <p>{name}</p>
-                <img src={pokeball} alt="pokeball" className="pokeball" style={{ filter: 'invert(1)', marginLeft: 'auto' }} />
+
+            <div className="info-content">
+              <div className="genus-container">
+                <p>{genus || 'Classification Unknown'}</p>
               </div>
 
-              <div className="scrollable-content">
-                <div className="genus-container">
-                  <p>{genus || 'Classification Unknown'}</p>
-                </div>
-
-                <div className="stats-container">
-                  <div className="stats-left">
-                    <p>Type</p>
-                    <p>Height</p>
-                    <p>Weight</p>
-                    <div className="ability-title">
-                      <p>Abilities</p>
-                    </div>
-                  </div>
-
-                  <div className="stats-right">
-                    <div className="type-container">
-                      {types.map((typeObj, i) => (
-                        <TypeTile type={typeObj.type.name} key={i} />
-                      ))}
-                    </div>
-                    <p>{height} m</p>
-                    <p>{weight} kg</p>
-                    <div className="ability-container">
-                      {abilities.map((abilityObj, i) => (
-                        <>
-                          <p key={i} className="ability">
-                            {abilityObj.ability.name}{' '}
-                            <span>
-                              <i onClick={() => handleShowModal(abilityObj)} className="fa-solid fa-circle-info info-icon"></i>
-                            </span>
-                          </p>
-                          {selectedAbility === abilityObj && <Modal handleCloseModal={handleCloseModal} abilityObj={abilityObj} />}
-                        </>
-                      ))}
-                    </div>
+              <div className="stats-container">
+                <div className="stats-left">
+                  <p>Type</p>
+                  <p>Height</p>
+                  <p>Weight</p>
+                  <div className="ability-title">
+                    <p>Abilities</p>
                   </div>
                 </div>
 
-                <div className="flavor-text-container">
-                  <p>{flavorText || 'No Data Available'}</p>
-                </div>
-
-                <div className="base-stats-container">
-                  {stats.map((stat, i) => (
-                    <div key={i} className="base-stat">
-                      {stat.stat.name === 'hp' ? (
-                        <span className="stat-name">HP</span>
-                      ) : stat.stat.name === 'special-attack' ? (
-                        <span className="stat-name">Sp. Atk</span>
-                      ) : stat.stat.name === 'special-defense' ? (
-                        <span className="stat-name">Sp. Def</span>
-                      ) : (
-                        <span className="stat-name">{stat.stat.name}</span>
-                      )}
-                      <progress max="150" value={stat.base_stat.toString()}></progress>
-                      <span className="stat-value">{stat.base_stat}</span>
-                    </div>
-                  ))}
+                <div className="stats-right">
+                  <div className="type-container">
+                    {types.map((typeObj, i) => (
+                      <TypeTile type={typeObj.type.name} key={i} />
+                    ))}
+                  </div>
+                  <p>{height} m</p>
+                  <p>{weight} kg</p>
+                  <div className="ability-container">
+                    {abilities.map((abilityObj, i) => (
+                      <>
+                        <p key={i} className="ability">
+                          {abilityObj.ability.name}{' '}
+                          <span>
+                            <i onClick={() => handleShowModal(abilityObj)} className="fa-solid fa-circle-info info-icon"></i>
+                          </span>
+                        </p>
+                        {selectedAbility === abilityObj && <Modal handleCloseModal={handleCloseModal} abilityObj={abilityObj} />}
+                      </>
+                    ))}
+                  </div>
                 </div>
               </div>
+
+              <div className="flavor-text-container">
+                <p>{flavorText || 'No Data Available'}</p>
+              </div>
+
+              <div className="base-stats-container">
+                {stats.map((stat, i) => (
+                  <div key={i} className="base-stat">
+                    {stat.stat.name === 'hp' ? (
+                      <span className="stat-name">HP</span>
+                    ) : stat.stat.name === 'special-attack' ? (
+                      <span className="stat-name">Sp. Atk</span>
+                    ) : stat.stat.name === 'special-defense' ? (
+                      <span className="stat-name">Sp. Def</span>
+                    ) : (
+                      <span className="stat-name">{stat.stat.name}</span>
+                    )}
+                    <progress max="150" value={stat.base_stat.toString()}></progress>
+                    <span className="stat-value">{stat.base_stat}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
