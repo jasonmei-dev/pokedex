@@ -216,7 +216,7 @@ progress::-ms-fill {
     max-width: 380px;
   }
 
-  .header {
+  .info-header {
     font-size: 20px;
     background: linear-gradient(135deg, #f0501d 45%, black 45%);
   }
@@ -245,7 +245,7 @@ progress::-ms-fill {
     max-width: 450px;
   }
 
-  .header {
+  .info-header {
     font-size: 22px;
   }
 
@@ -273,7 +273,7 @@ progress::-ms-fill {
     max-width: 450px;
   }
 
-  .header {
+  .info-header {
     font-size: 22px;
   }
 
@@ -301,7 +301,7 @@ progress::-ms-fill {
     max-width: 500px;
   }
 
-  .header {
+  .info-header {
     font-size: 24px;
   }
 
