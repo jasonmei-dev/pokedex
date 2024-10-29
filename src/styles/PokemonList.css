@@ -16,6 +16,20 @@
   background-color: #fb7248;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+  background-color: #f3533b;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) {
   .list-container {

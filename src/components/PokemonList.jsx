@@ -5,11 +5,24 @@ import '../styles/PokemonList.css';
 
 const PokemonList = ({ allPokemon, searchText }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const scrollableDivRef = useRef(null);
 
   const handleScroll = () => {
     const scrollTop = scrollableDivRef.current.scrollTop;
     setScrollPosition(scrollTop);
+
+    // Show the "Back to Top" button when scrolled down more than 200px
+    setShowBackToTop(scrollTop > 200);
+  };
+
+  const scrollToTop = () => {
+    if (scrollableDivRef.current) {
+      scrollableDivRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   useEffect(() => {
@@ -28,10 +41,12 @@ const PokemonList = ({ allPokemon, searchText }) => {
   }, []);
 
   useEffect(() => {
+    // Retrieve saved position on load (if it exists) or reset it to 0
     const savedPosition = localStorage.getItem('scrollPosition');
 
     if (savedPosition && scrollableDivRef.current) {
-      scrollableDivRef.current.scrollTop = parseInt(savedPosition, 10);
+      // Reset scroll position to 0 if there's no saved position
+      scrollableDivRef.current.scrollTop = savedPosition ? parseInt(savedPosition, 10) : 0;
     }
   }, []);
 
@@ -59,6 +74,7 @@ const PokemonList = ({ allPokemon, searchText }) => {
             scrollPosition={scrollPosition}
           />
         ))}
+      {showBackToTop && <i onClick={scrollToTop} className="fa-solid fa-chevron-up back-to-top"></i>}
     </div>
   );
 };
