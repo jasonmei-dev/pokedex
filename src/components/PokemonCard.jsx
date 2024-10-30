@@ -10,7 +10,7 @@ const PokemonCard = ({ id, dexNum, icon, image, name, types, weight, height, abi
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    localStorage.setItem('scrollPosition', scrollPosition);
+    sessionStorage.setItem('scrollPosition', scrollPosition);
 
     navigate(`/pokemon/${id}`, { state: { id, dexNum, icon, image, name, types, weight, height, abilities, stats } });
   };

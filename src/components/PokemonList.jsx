@@ -42,7 +42,7 @@ const PokemonList = ({ allPokemon, searchText }) => {
 
   useEffect(() => {
     // Retrieve saved position on load (if it exists) or reset it to 0
-    const savedPosition = localStorage.getItem('scrollPosition');
+    const savedPosition = sessionStorage.getItem('scrollPosition');
 
     if (savedPosition && scrollableDivRef.current) {
       // Reset scroll position to 0 if there's no saved position
