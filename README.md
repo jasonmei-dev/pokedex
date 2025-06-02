@@ -20,7 +20,7 @@ Pokdex is a front-end application built using the following technologies:
 - Preview modal of Pokemon when hovering over their entry card (desktop only)
 - 'Back to top' scroll button
 
-  Features to add:
+  ##### Features to add:
 
   - Infinite scrolling
   - Toggle shiny Pokemon sprites
